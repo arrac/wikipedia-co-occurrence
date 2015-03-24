@@ -32,6 +32,6 @@
 `perl -CS merge.pl \"$ARGV[1]/sorted/sorted_splits\" \"$ARGV[1]/sorted\";
 
 #Clean up these lines
-`cat \"$ARGV[1]/sorted/10/sort0\" | perl -CS uniq.pl > /data/coocs`;
-`cat /data/coocs | perl -CS node_metrics.pl > /data/nodes`;
-`cat /data/coocs | awk -F \"\\t\" '\$1!=\$2' > /data/edges`;
+`cat \"$ARGV[1]/sorted/10/sort0\" | perl -CS uniq.pl > \"$ARGV[1]/cc\"`;
+`cat \"$ARGV[1]/cc\" | perl -CS node_metrics.pl > \"$ARGV[1]/nodes\"`;
+`cat \"$ARGV[1]/cc\" | awk -F \"\\t\" '\$1!=\$2' > \"$ARGV[1]/edges\"`;
